@@ -72,8 +72,11 @@ function renderImages(data) {
 
 function makeMarkup(arr, totalHits) {
   totalRenderItem += arr.length;
-  if (totalHits - totalRenderItem < 40 && totalRenderItem >= 500) {
-    Notify.info('asdsad');
+  if (totalRenderItem > 40 && totalRenderItem >= 500 ) {
+    Notify.info("We're sorry, but you've reached the end of search results.");
+  }
+  if (totalRenderItem > 40 && totalRenderItem === totalHits) {
+    Notify.info("We're sorry, but you've reached the end of search results.");
   }
 
   const markup = arr.map(
