@@ -58,7 +58,6 @@ function fetch() {
 }
 
 function renderImages(data) {
-    console.log(data);
   const imagesArr = data.hits;
   if (data.hits.length === 0) {
     return Notify.failure(
