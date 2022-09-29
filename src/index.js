@@ -61,8 +61,6 @@ function fetch() {
 }
 
 function renderImages(data) {
-  console.log(data);
-  console.log(data.hits);
   const imagesArr = data.hits;
   const totalHits = data.totalHits;
 
@@ -73,25 +71,21 @@ function renderImages(data) {
 }
 
 function makeMarkup(arr, totalHits) {
-  console.log('~ totalHits', totalHits)
-
   totalRenderItem += arr.length;
-  console.log('~ totalRenderItem', totalRenderItem)
-  if (totalHits - totalRenderItem < 40 && totalRenderItem >= 500 ) {
+  if (totalHits - totalRenderItem < 40 && totalRenderItem >= 500) {
     Notify.info('asdsad');
   }
 
-  const markup = arr
-    .map(
-      ({
-        largeImageURL,
-        webformatURL,
-        tags,
-        likes,
-        views,
-        comments,
-        downloads,
-      }) => `<div class="photo-card">
+  const markup = arr.map(
+    ({
+      largeImageURL,
+      webformatURL,
+      tags,
+      likes,
+      views,
+      comments,
+      downloads,
+    }) => `<div class="photo-card">
   <a href="${largeImageURL}"><img class="photo" src="${webformatURL}" alt="${tags}" title="${tags}" loading="lazy"/></a>
    <div class="info">
       <p class="info-item">
@@ -108,7 +102,7 @@ function makeMarkup(arr, totalHits) {
        </p>
    </div>
 </div>`
-    )
+  );
   refs.gallery.insertAdjacentHTML('beforeend', markup.join(''));
 
   new SimpleLightbox('.gallery a ', {
