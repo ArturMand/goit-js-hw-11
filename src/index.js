@@ -108,22 +108,12 @@ function makeMarkup(arr, totalHits) {
   );
   refs.gallery.insertAdjacentHTML('beforeend', markup.join(''));
 
-  new SimpleLightbox('.gallery a ', {
+  new SimpleLightbox('.photo-card a ', {
     captionsData: 'alt',
     captionDelay: 250,
   });
 
-  // const { height: cardHeight } =
-  //   refs.gallery.firstElementChild.getBoundingClientRect();
-  // smoothScroll(cardHeight);
 }
-
-// function smoothScroll(cardHeight) {
-//   window.scrollBy({
-//     top: cardHeight * 2,
-//     behavior: 'smooth',
-//   });
-// }
 
 function clearGallery() {
   refs.gallery.innerHTML = '';
